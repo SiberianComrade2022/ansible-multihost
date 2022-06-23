@@ -1,0 +1,12 @@
+# vim:ft=ansible:
+
+- name: Wait 5 minutes
+  ansible.builtin.wait_for_connection:
+    sleep: 5
+    timeout: 300
+
+- name: Install packages required by MongoDB
+  ansible.builtin.package:
+    state: present
+    name:
+      - mongodb-server

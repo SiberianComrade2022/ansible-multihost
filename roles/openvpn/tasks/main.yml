@@ -1,0 +1,13 @@
+# vim:ft=ansible:
+
+- name: Install MongoDB client
+  ansible.builtin.package:
+    state: present
+    name:
+      - mongodb-clients
+
+- name: Install Midnight Commander
+  ansible.builtin.package:
+    state: present
+    name:
+      - mc

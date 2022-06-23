@@ -1,0 +1,15 @@
+# vim:ft=ansible:
+
+---
+- hosts: all
+  gather_facts: false
+  roles:
+    - common
+
+- hosts: bastion
+  roles:
+    - openvpn
+
+- hosts: mongodb
+  roles:
+    - mongodb
