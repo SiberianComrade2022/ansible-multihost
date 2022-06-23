@@ -1,0 +1,47 @@
+# vim:ft=ansible:
+
+---
+- hosts: all
+  tasks:
+  - name: Wait 5 minutes
+    wait_for_connection:
+      sleep: 5
+      timeout: 300
+
+  - name: Update apt cache
+    package:
+      update_cache: yes
+
+  - name: Disable services
+    service:
+      name: unattended-upgrades
+      state:   stopped
+      enabled: no
+
+- hosts: bastion
+  tasks:
+  - name: Install MongoDB client
+    apt:
+      state: present
+      name:
+      - mongodb-clients
+
+  - name: Install Midnight Commander
+    package:
+      state: present
+      name:
+      - mc
+
+- hosts: mongodb
+  tasks:
+  - name: Wait 5 minutes
+    wait_for_connection:
+      sleep: 5
+      timeout: 300
+
+  - name: Install packages required by MongoDB
+    apt:
+      state: present
+      name:
+      - mongodb-server
+

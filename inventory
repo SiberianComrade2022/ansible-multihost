@@ -1,0 +1,20 @@
+# ansible-inventory -i inventory --list
+[bastion]
+localhost ansible_connection=local ansible_user=u-tester
+
+[mongodb]
+host34
+
+
+[rancher_master]
+host57
+
+
+[all:vars]
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+ansible_become=yes
+ansible_user=k-user
+
+[mongodb:vars]
+
+[rancher_master:vars]

@@ -1,0 +1,38 @@
+### Terraform ###
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+crash.log
+*.tfvars
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraformrc
+terraform.rc
+*.lock.hcl
+.terraformignore
+
+### Ansible ###
+ansible/inventory
+ansible.cfg
+ansible/group_vars/all.yaml
+
+### Certificates and Keys ###
+*.pem
+*.key
+*.crt
+*.cer
+*.der
+*.srl
+*.csr
+*.p12
+*.priv
+id_rsa
+id_dsa
+
+### Miscellanious ###
+.idea
+.DS_Store
+*.code-workspace
+*.swp
