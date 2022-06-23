@@ -18,3 +18,7 @@ host_key_checking = False
 ```bash
 ansible-playbook -i inventory --private-key id_ansible setup-all.yaml
 ```
+or without private key if it's defined in the inventory or variables.
+```bash
+ansible-playbook -i inventory setup-all.yaml
+```

@@ -2,11 +2,15 @@
 
 ---
 - hosts: all
+  gather_facts: no
   tasks:
   - name: Wait 5 minutes
     wait_for_connection:
       sleep: 5
       timeout: 300
+  
+  - name: gather_facts
+    setup:
 
   - name: Update apt cache
     package:

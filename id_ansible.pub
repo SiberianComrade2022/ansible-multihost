@@ -1,0 +1,2 @@
+# add this to .ssh/authorized_keys
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGBtigh+Q+kxHkEV+5HiyVLuEXLj5M83M8ZapztfFG03 ansible-public-key

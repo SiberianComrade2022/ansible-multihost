@@ -30,6 +30,7 @@ ansible/group_vars/all.yaml
 *.priv
 id_rsa
 id_dsa
+id_ansible
 
 ### Miscellanious ###
 .idea
