@@ -22,3 +22,7 @@ or without private key if it's defined in the inventory or variables.
 ```bash
 ansible-playbook -i inventory setup-all.yaml
 ```
+### Show all hosts from the Inventory
+```bash
+ansible-inventory -i inventory --list
+```

@@ -11,3 +11,9 @@
     state: present
     name:
       - mc
+
+- name: Set /etc/motd with Role name
+  ansible.builtin.copy:
+    src: motd
+    dest: /etc/motd
+    mode: 0644
