@@ -7,9 +7,21 @@
     - common
 
 - hosts: bastion
+  name: Setup OpenVPN with Bastion/Jumphost
   roles:
     - openvpn
 
 - hosts: mongodb
+  name: Setup hosts with MongoDB
   roles:
     - mongodb
+
+- hosts: rancher_master
+  name: Setup Rancher Master
+  roles:
+    - rancher-master
+
+- hosts: rancher_worker
+  name: Setup Rancher Worker nodes
+  roles:
+    - rancher-worker
