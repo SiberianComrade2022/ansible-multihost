@@ -1,0 +1,9 @@
+# vim:ft=ansible:
+---
+
+# IPtables placeholder
+- name: Block specific IP
+  ansible.builtin.iptables:
+    chain: INPUT
+    source: 192.0.66.168
+    jump: DROP
