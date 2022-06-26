@@ -1,0 +1,11 @@
+# vim:ft=ansible:
+---
+
+- name: Wait 5 minutes ({{ boot_timeout }} seconds)
+  ansible.builtin.wait_for_connection:
+    sleep: 5
+    timeout: "{{ boot_timeout }}"
+
+- name: "Debug: Print stage"
+  ansible.builtin.debug:
+    msg: "Waiting for the host to boot: {{ inventory_hostname }}"

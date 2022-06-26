@@ -1,1 +1,13 @@
 # vim:ft=ansible:
+---
+
+- name: Show which variables we use here
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: test_vars
+
+- name: Wait for the host to start
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: wait_for_host
+

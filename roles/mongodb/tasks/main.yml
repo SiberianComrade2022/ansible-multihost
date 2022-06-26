@@ -1,12 +1,24 @@
 # vim:ft=ansible:
+---
 
-- name: Wait 5 minutes
-  ansible.builtin.wait_for_connection:
-    sleep: 5
-    timeout: 300
+- name: Show which variables we use here
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: test_vars
+
+- name: Wait for the host to start
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: wait_for_host
 
 - name: Install packages required by MongoDB
   ansible.builtin.package:
     state: present
     name:
       - mongodb-server
+
+- name: Set /etc/motd with Role name
+  ansible.builtin.copy:
+    src: motd
+    dest: /etc/motd
+    mode: 0644

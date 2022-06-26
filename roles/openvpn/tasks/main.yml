@@ -1,4 +1,15 @@
 # vim:ft=ansible:
+---
+
+- name: Show which variables we use here
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: test_vars
+
+- name: Wait for the host to start
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: wait_for_host
 
 - name: Install MongoDB client
   ansible.builtin.package:
@@ -17,3 +28,11 @@
     src: motd
     dest: /etc/motd
     mode: 0644
+
+- name: Copy greeting script hello-world.sh
+  ansible.builtin.copy:
+    src: hello-world.sh
+    dest: /usr/local/bin/
+    mode: 0755
+
+- include_tasks: iptables.yml

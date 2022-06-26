@@ -1,0 +1,13 @@
+# vim:ft=ansible:
+---
+
+- name: List defined known variables
+  ansible.builtin.debug:
+    msg:
+    - "test_variable: {{ test_variable }}"
+    - "ansible_ssh_common_args: {{ ansible_ssh_common_args }}"
+    - "ansible_ssh_private_key_file: {{ ansible_ssh_private_key_file }}"
+    - "ansible_connection: {{ ansible_connection }}"
+    - "ansible_become: {{ ansible_become }}"
+    - "ansible_user: {{ ansible_user }}"
+    - "boot_timeout: {{ boot_timeout }}"

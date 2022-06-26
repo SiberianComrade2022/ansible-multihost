@@ -1,17 +1,15 @@
 # vim:ft=ansible:
+---
 
-- name: Wait 5 minutes (300 seconds)
-  ansible.builtin.wait_for_connection:
-    sleep: 5
-    timeout: 300
+- include_tasks: wait_for_host.yml
 
 # workaround to wait for all hosts to start
 - name: gather_facts
   ansible.builtin.setup:
 
-- name: Update apt cache
+- name: Update apt/yum cache
   ansible.builtin.package:
-    update_cache: false
+    update_cache: true
 
 - name: Disable services
   ansible.builtin.service:
