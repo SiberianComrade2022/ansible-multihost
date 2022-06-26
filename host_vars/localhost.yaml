@@ -1,0 +1,4 @@
+# vim:ft=ansible:
+---
+
+ansible_connection: local
