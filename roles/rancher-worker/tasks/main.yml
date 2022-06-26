@@ -1,1 +1,26 @@
 # vim:ft=ansible:
+---
+
+- name: Show which variables we use here
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: test_vars
+
+- name: Wait for the host to start
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: wait_for_host
+
+- name: Check if k3s is installed
+  register: k3s_installed
+  command: k3s --version
+  ignore_errors: true
+
+- name: This task is only executed if k3s is installed
+  ansible.builtin.debug: 
+    var: k3s_install
+  when: k3s_installed|success
+  
+- name: This task is only executed if PHP is NOT installed
+  debug: msg='k3s is NOT installed'
+  when: k3s_installed|failed
