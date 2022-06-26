@@ -1,1 +1,4 @@
 # vim:ft=ansible:
+---
+boot_timeout: 307
+ 
