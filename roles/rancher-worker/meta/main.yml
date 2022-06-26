@@ -1,0 +1,5 @@
+# vim:ft=ansible:
+---
+# Creation of Rancher Worker nodes depends on presence of Rancher Master
+dependencies:
+  - rancher-master
